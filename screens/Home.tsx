@@ -1,24 +1,51 @@
-import React from 'react'
-import { View, Text,Button,StyleSheet,TextInput } from 'react-native'
+import React, { useState } from 'react'
+import { View, Text, Button, StyleSheet, TextInput } from 'react-native'
 import Convert from '../components/Convert';
 
 const Home = () => {
+
+    const handleCalcular = () => {
+
+
+    }
+
+    const mensaje = () => {
+
+    }
+
+    const [convertir, setConvertir] = useState(0)
+
+    const handleChangeConvertir = (texto: string) => {
+        const numero = parseFloat(texto)
+        setConvertir(numero)
+    }
+
     return (
         <View>
-            <Convert></Convert>
-            <Convert></Convert>
-            <Text style={styles.texto}> Resultado de convertir </Text>
-            <TextInput
-             style={styles.input}
-            //  defaultValue={resultado.toString()}
-             maxLength={10}
-              />
             <View style={styles.button}>
                 <Button title="Calcular"
-                    
+                    onPress={handleCalcular}
                 />
-
             </View>
+
+            <Convert title='Origen'></Convert>
+            <Text style={styles.texto}> Cantidad a Convertir </Text>
+            <TextInput
+                style={styles.input}
+                maxLength={10}
+                defaultValue={convertir.toString()}
+            />
+            <Convert title='Destino'></Convert>
+
+
+            <Text style={styles.texto}> Resultado de la Conversion </Text>
+            <TextInput
+                style={styles.input}
+                maxLength={10}
+            />
+
+
+
         </View>
     )
 }
@@ -38,6 +65,9 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     button: {
-        marginTop: 20
+        position: 'absolute',
+        bottom: 300,
+        marginLeft: 150,
+
     }
 })
