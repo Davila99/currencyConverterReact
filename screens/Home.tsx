@@ -4,10 +4,7 @@ import Convert from '../components/Convert';
 
 const Home = () => {
 
-    const handleCalcular = () => {
 
-
-    }
 
     const mensaje = () => {
 
@@ -18,6 +15,15 @@ const Home = () => {
     const handleChangeConvertir = (texto: string) => {
         const numero = parseFloat(texto)
         setConvertir(numero)
+
+
+    }
+    const [resultado,setResultado] =useState(0)
+    const handleCalcular = () => {
+
+        let result:number
+        result =convertir *35.5;
+        setResultado(result)
     }
 
     return (
@@ -28,23 +34,24 @@ const Home = () => {
                 />
             </View>
 
-            <Convert title='Origen'></Convert>
+            <Convert title='Origen' ></Convert>
             <Text style={styles.texto}> Cantidad a Convertir </Text>
             <TextInput
                 style={styles.input}
-                maxLength={10}
                 defaultValue={convertir.toString()}
+                maxLength={10}
+                onChangeText={(text) => handleChangeConvertir(text)}
             />
-            <Convert title='Destino'></Convert>
+
+            <Convert title='Destino' ></Convert>
 
 
             <Text style={styles.texto}> Resultado de la Conversion </Text>
             <TextInput
                 style={styles.input}
+                defaultValue={resultado.toString()}
                 maxLength={10}
             />
-
-
 
         </View>
     )

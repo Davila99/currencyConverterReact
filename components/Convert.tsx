@@ -3,19 +3,24 @@ import React, { useState } from 'react'
 import { View, Text, StyleSheet, TextInput, Picker } from 'react-native'
 
 interface Props {
-    // origin: 'usd' | 'cord' | 'eu';
+    
     title: string;
 }
 const Convert = ({ title }: Props) => {
 
+
     const [selectedValue, setSelectedValue] = useState('');
 
-    const [origin, setOrigin] = useState('')
-    const [destino, setDestino] = useState('')
-
-
     const calcular = () => {
+        if (selectedValue === "usb") {
+            
+        }
+        if (selectedValue === "cord") {
 
+        }
+        if (selectedValue === "eu") {
+
+        }
     }
 
     return (
@@ -23,15 +28,15 @@ const Convert = ({ title }: Props) => {
             <View>
                 <Text style={styles.texto}>Unidad de {title} </Text>
 
-                <TextInput
+                {/* <TextInput
                     style={styles.input}
                     defaultValue={origin}
                     maxLength={2}
                     onChangeText={setOrigin}
 
-                />
+                /> */}
 
-                {/* <Picker
+                <Picker
                     selectedValue={selectedValue}
                     style={{}}
                     onValueChange={(itemValue) => setSelectedValue(itemValue)}
@@ -39,7 +44,7 @@ const Convert = ({ title }: Props) => {
                     <Picker.Item label="Dolar" value="usd" />
                     <Picker.Item label="Cordobas" value="cord" />
                     <Picker.Item label="Euros" value="eu" />
-                </Picker> */}
+                </Picker>
             </View>
         </View>
     )
