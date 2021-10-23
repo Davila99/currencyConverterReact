@@ -3,17 +3,17 @@ import React, { useState } from 'react'
 import { View, Text, StyleSheet, TextInput, Picker } from 'react-native'
 
 interface Props {
-    
+    cantidad: number;
     title: string;
 }
-const Convert = ({ title }: Props) => {
-
+const Convert = ({ title, cantidad }: Props) => {
 
     const [selectedValue, setSelectedValue] = useState('');
+    const [resultado, setResultado] = useState(0)
 
     const calcular = () => {
         if (selectedValue === "usb") {
-            
+
         }
         if (selectedValue === "cord") {
 
@@ -27,14 +27,6 @@ const Convert = ({ title }: Props) => {
         <View>
             <View>
                 <Text style={styles.texto}>Unidad de {title} </Text>
-
-                {/* <TextInput
-                    style={styles.input}
-                    defaultValue={origin}
-                    maxLength={2}
-                    onChangeText={setOrigin}
-
-                /> */}
 
                 <Picker
                     selectedValue={selectedValue}

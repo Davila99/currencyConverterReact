@@ -6,24 +6,24 @@ const Home = () => {
 
 
 
-    const mensaje = () => {
 
-    }
 
     const [convertir, setConvertir] = useState(0)
 
     const handleChangeConvertir = (texto: string) => {
         const numero = parseFloat(texto)
         setConvertir(numero)
-
-
     }
-    const [resultado,setResultado] =useState(0)
+    const [resultado, setResultado] = useState(0)
     const handleCalcular = () => {
 
-        let result:number
-        result =convertir *35.5;
+        let result: number
+        result = convertir * 35.5;
         setResultado(result)
+
+    }
+    const mensaje = () => {
+
     }
 
     return (
@@ -34,7 +34,7 @@ const Home = () => {
                 />
             </View>
 
-            <Convert title='Origen' ></Convert>
+            <Convert title='Origen' cantidad={resultado}></Convert>
             <Text style={styles.texto}> Cantidad a Convertir </Text>
             <TextInput
                 style={styles.input}
@@ -43,8 +43,7 @@ const Home = () => {
                 onChangeText={(text) => handleChangeConvertir(text)}
             />
 
-            <Convert title='Destino' ></Convert>
-
+            <Convert title='Destino' cantidad={resultado}  ></Convert>
 
             <Text style={styles.texto}> Resultado de la Conversion </Text>
             <TextInput
